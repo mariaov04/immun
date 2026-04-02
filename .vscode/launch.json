@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Edge",
+            "file": "${workspaceFolder}/gg.html",
+            "runtimeExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+            "runtimeArgs": ["--remote-debugging-port=9222"],
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

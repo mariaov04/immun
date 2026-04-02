@@ -1,0 +1,182 @@
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Тема 1. Введение в иммунологию</title>
+        <link rel="stylesheet" href="../style.css" />
+        <div class="course-progress">
+    <div class="course-info">
+        Иммунология → <span>Урок 1 / 8</span>
+    </div>
+
+    <div class="progress-bars">
+        <span class="bar active"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</div>
+    </head>
+    <body>
+        <aside class="sidebar">
+            <!-- ЛОГО -->
+            <div class="sidebar-logo">
+                <img src="../pictures/Vector.png" alt="Логотип" />
+            </div>
+
+            <!-- НАВИГАЦИЯ -->
+            <nav class="sidebar-nav">
+                <a href="#intro">Введение</a>
+                <a href="#concepts">Понятия</a>
+                <a href="#cells">Клетки</a>
+                <a href="#video">Видео</a>
+                <a href="#test">Тест</a>
+            </nav>
+
+            <!-- КНОПКА ВЫХОДА -->
+            <div class="sidebar-footer">
+                <a href="../index.html">
+                    <img
+                        src="../pictures/Button.png"
+                        alt="Выход"
+                        class="exit-btn"
+                    />
+                </a>
+            </div>
+        </aside>
+        <div class="container">
+            
+            <header>
+    <div class="theme-title">Введение в иммунологию</div>
+                
+            </header>
+                
+                <h2>Клетки врожденного иммунитета</h2>
+
+               
+                <div class="cell-viewer">
+
+    <!-- ЛЕВАЯ ПАНЕЛЬ с текстом -->
+    <div class="cell-info">
+        <h3 class="cell-title">Название клетки</h3>
+        <p class="cell-desc">Описание клетки...</p>
+    </div>
+
+    <div class="cell-3d">
+
+    <!-- Подсказка -->
+    <div class="controls-hint">Поворачивайте и приближайте</div>
+
+    <!-- 3D сцена -->
+    <div id="three-container-main" class="three-box"></div>
+
+    <!-- Стрелочки внутри 3D блока -->
+    <div class="cell-controls">
+        <button id="prev-cell" class="control-btn">&#8592;</button>
+        <span class="cell-counter">1 / 4</span>
+        <button id="next-cell" class="control-btn">&#8594;</button>
+    </div>
+
+</div>
+
+        </div>
+
+                    <section>
+                    <!-- <h2>Функции клеток</h2>-->
+                        <div class="video-container">
+            <video 
+                controls 
+                width="960" 
+                height="540" 
+                poster="../video/cover_func.png"  
+            >
+                <source src="../video/Cells_functions.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+                        <section>
+                    <h2>3 уровня защиты от патогенов</h2>
+                    <img src="../pictures/skhema2.png" class="zoom-img" alt="">
+                </section>
+            </section>
+            <p>
+                Ключевые элементы включают физические барьеры (кожа, слизистые),
+                клетки-«стражи» (макрофаги, нейтрофилы), а также
+                высокоспецифичные Т- и В-лимфоциты, способные «запоминать»
+                патогены.
+            </p>
+            <main class="theme-content">
+                
+
+
+                <img src="../pictures/skhema1.png" class="zoom-img" alt="">
+
+
+            <!-- Модальное окно -->
+            <div id="imgModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImage">
+            </div>
+            <script>
+            const modal = document.getElementById("imgModal");
+            const modalImg = document.getElementById("modalImage");
+            const images = document.querySelectorAll(".zoom-img");
+            const closeBtn = document.querySelector(".close");
+
+            images.forEach(img => {
+                img.addEventListener("click", function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                });
+            });
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Закрытие по клику вне картинки
+            modal.addEventListener("click", function(e) {
+                if (e.target === modal) {
+                modal.style.display = "none";
+                }
+            });
+            </script>
+
+
+
+                <!-- 2. Текст -->
+                <section>
+                    <h2>Текст текст</h2>
+                    <p>
+                        Иммунология — наука, изучающая защитные механизмы
+                        организма против инфекций, повреждений и опухолевых
+                        клеток.
+                    </p>
+                    <p>
+                        Ключевые элементы включают физические барьеры (кожа,
+                        слизистые), клетки-«стражи» (макрофаги, нейтрофилы), а
+                        также высокоспецифичные Т- и В-лимфоциты, способные
+                        «запоминать» патогены.
+                    </p>
+                </section>
+            </main>
+            <!-- Навигация -->
+            <div class="navigation">
+                <a href="theme2.html" class="test-btn"
+                    >Тема 2. Врождённый иммунитет →</a
+                >
+            </div>
+            <script type="module" src="../main.js"></script>
+                </div>
+            </div>
+            
+            <footer>
+                <p>© 2025 Курс «Базисная и клиническая иммунология»</p>
+            </footer>
+        </div>
+    </body>
+</html>
