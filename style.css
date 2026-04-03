@@ -3014,3 +3014,135 @@ background-color: rgba(255, 255, 255, 0.15);
 
 
 
+/* ============================================
+   ПЛАВНАЯ ЗАГРУЗКА СТРАНИЦ
+   ============================================ */
+
+/* Затемнение при переходе */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0c2ec5 0%, #2a52d8 100%);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-transition-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Лоадер */
+.page-loader {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: loader-spin 1s linear infinite;
+}
+
+@keyframes loader-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Плавное появление контента */
+body {
+    opacity: 0;
+    animation: page-fade-in 0.8s ease forwards;
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Скрываем контент до загрузки */
+.theme-content,
+.container,
+header,
+.sidebar {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded .theme-content,
+body.loaded .container,
+body.loaded header,
+body.loaded .sidebar {
+    opacity: 1;
+}
+
+/* Плавный скролл к якорю */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Прогресс-бар загрузки сверху */
+.page-load-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0051ff, #6a99ff);
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.page-load-progress.complete {
+    width: 100%;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.4s ease 0.3s;
+}
+
+/* ============================================
+   ИСПРАВЛЕНИЕ ПУСТОЙ ОБЛАСТИ ПОСЛЕ ЗАГРУЗКИ
+   ============================================ */
+
+body.loaded::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0c2ec5 0%, #2a52d8 100%);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+body.loaded.transitioning::after {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Убираем все возможные пустые области */
+body::after {
+    display: none !important;
+}
+
+/* Гарантируем, что контент не перекрывается */
+.container,
+.theme-content {
+    position: relative;
+    z-index: 1;
+}

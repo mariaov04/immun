@@ -50,6 +50,14 @@
         </div>
     </head>
     <body>
+
+        <!-- Плавная загрузка страниц -->
+<div class="page-transition-overlay" id="pageTransition">
+    <div class="page-loader"></div>
+</div>
+<div class="page-load-progress" id="pageProgress"></div>
+
+
         <video autoplay muted loop playsinline class="back-video">
   <source src="../video/Back.mp4" type="video/mp4">
 </video>
@@ -1735,6 +1743,105 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
+
+<script>
+// ============================================
+// ПЛАВНАЯ ЗАГРУЗКА СТРАНИЦ
+// ============================================
+
+(function() {
+    const transitionOverlay = document.getElementById('pageTransition');
+    const pageProgress = document.getElementById('pageProgress');
+    const minLoadTime = 600; // Минимальное время загрузки (мс)
+    const startTime = Date.now();
+    
+    // Показываем прогресс-бар
+    function showProgress() {
+        if (pageProgress) {
+            pageProgress.style.width = '30%';
+            setTimeout(() => { pageProgress.style.width = '70%'; }, 200);
+        }
+    }
+    
+    // Завершаем прогресс
+    function completeProgress() {
+        if (pageProgress) {
+            pageProgress.style.width = '100%';
+            pageProgress.classList.add('complete');
+        }
+    }
+    
+    // Показываем оверлей перехода
+    function showTransition() {
+        if (transitionOverlay) {
+            transitionOverlay.classList.add('active');
+        }
+    }
+    
+    // Скрываем оверлей перехода
+    function hideTransition() {
+        if (transitionOverlay) {
+            setTimeout(() => {
+                transitionOverlay.classList.remove('active');
+            }, 400);
+        }
+    }
+    
+    // Обработка загрузки страницы
+    function handlePageLoad() {
+        showProgress();
+        
+        // Ждем минимальное время + загрузка ресурсов
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+        
+        setTimeout(() => {
+            completeProgress();
+            document.body.classList.add('loaded');
+            hideTransition();
+        }, remainingTime);
+    }
+    
+    // Обработка кликов по ссылкам навигации
+    function handleNavigation() {
+        const navLinks = document.querySelectorAll('.sidebar-nav a, .toc-card a, .back-link, .next-btn, .prev-btn, .test-btn, .next-theme-btn');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Пропускаем якорные ссылки и внешние
+                if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('../tests/')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                // Показываем переход
+                showTransition();
+                showProgress();
+                
+                // Переходим после анимации
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            });
+        });
+    }
+    
+    // Инициализация
+    if (document.readyState === 'complete') {
+        handlePageLoad();
+    } else {
+        window.addEventListener('load', handlePageLoad);
+    }
+    
+    handleNavigation();
+})();
+</script>
+
+
 
     </body>
 </html>
