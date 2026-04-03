@@ -95,22 +95,21 @@
   </div>
 
 
-  <script>
+ <script>
 // ============================================
-// ПЛАВНАЯ ЗАГРУЗКА СТРАНИЦ
+// ПЛАВНАЯ ЗАГРУЗКА СТРАНИЦ - ИСПРАВЛЕННАЯ ВЕРСИЯ
 // ============================================
 
 (function() {
     const transitionOverlay = document.getElementById('pageTransition');
     const pageProgress = document.getElementById('pageProgress');
-    const minLoadTime = 600; // Минимальное время загрузки (мс)
-    const startTime = Date.now();
+    const body = document.body;
     
     // Показываем прогресс-бар
     function showProgress() {
         if (pageProgress) {
             pageProgress.style.width = '30%';
-            setTimeout(() => { pageProgress.style.width = '70%'; }, 200);
+            setTimeout(() => { pageProgress.style.width = '70%'; }, 300);
         }
     }
     
@@ -138,19 +137,29 @@
         }
     }
     
-    // Обработка загрузки страницы
+    // Обработка полной загрузки страницы
     function handlePageLoad() {
         showProgress();
         
-        // Ждем минимальное время + загрузка ресурсов
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+        // Ждем ПОЛНОЙ загрузки всех ресурсов (изображения, видео, стили)
+        if (document.readyState === 'complete') {
+            // Если уже загружено
+            finalizeLoad();
+        } else {
+            // Ждем события load (все ресурсы загружены)
+            window.addEventListener('load', finalizeLoad);
+        }
+    }
+    
+    // Финализация загрузки
+    function finalizeLoad() {
+        completeProgress();
         
+        // Небольшая задержка для плавности (100-200мс)
         setTimeout(() => {
-            completeProgress();
-            document.body.classList.add('loaded');
+            body.classList.add('loaded');
             hideTransition();
-        }, remainingTime);
+        }, 150);
     }
     
     // Обработка кликов по ссылкам навигации
@@ -181,12 +190,7 @@
     }
     
     // Инициализация
-    if (document.readyState === 'complete') {
-        handlePageLoad();
-    } else {
-        window.addEventListener('load', handlePageLoad);
-    }
-    
+    handlePageLoad();
     handleNavigation();
 })();
 </script>
