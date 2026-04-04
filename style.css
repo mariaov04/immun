@@ -3146,3 +3146,901 @@ body::after {
     position: relative;
     z-index: 1;
 }
+
+
+
+
+/* ============================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ (max-width: 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* ----- ОБЩИЕ КОНТЕЙНЕРЫ ----- */
+    .container,
+    .theme-content {
+        max-width: 100%;
+        margin: 0;
+        padding: 0 16px;
+    }
+    
+    body {
+        font-size: 14px;
+    }
+    
+    /* ----- ЗАГОЛОВКИ ----- */
+    header h1 {
+        font-size: 2rem;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .theme-title {
+        font-size: 1.75rem;
+    }
+    
+    .theme-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.125rem;
+    }
+    
+    /* ----- САЙДБАР (TOPBAR) ----- */
+    .sidebar {
+        height: 64px;
+        padding: 0 12px;
+        grid-template-columns: auto 1fr auto;
+    }
+    
+    .sidebar-logo img {
+        width: 40px;
+    }
+    
+    .course-title {
+        font-size: 14px;
+        display: none;
+    }
+    
+    .sidebar-nav {
+        gap: 16px;
+    }
+    
+    .sidebar-nav a {
+        font-size: 0.875rem;
+        padding-left: 10px;
+    }
+    
+    .exit-btn {
+        width: 36px;
+    }
+    
+    /* ----- TOC СЕТКА (ОГЛАВЛЕНИЕ) ----- */
+    .toc-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    .toc-card a {
+        height: 180px;
+        padding: 16px 12px 40px 12px;
+        font-size: 0.875rem;
+    }
+    
+    .toc-number {
+        font-size: 0.875rem;
+        min-width: 24px;
+        margin-right: 8px;
+    }
+    
+    .toc-title {
+        font-size: 0.875rem;
+        margin-top: 8px;
+    }
+    
+    .toc-card a img {
+        width: 180px;
+        height: 180px;
+        right: -60px;
+        top: 70%;
+    }
+    
+    /* ----- КАРТОЧКИ (FLIP CARDS) ----- */
+    .cards {
+        flex-direction: column;
+        gap: 16px;
+        margin: 24px auto;
+    }
+    
+    .card {
+        height: 400px;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-list li {
+        font-size: 0.875rem;
+        padding: 12px 16px;
+        margin-bottom: 12px;
+    }
+    
+    .flip-icon {
+        bottom: 12px;
+        right: 12px;
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* ----- ИНФОРМАЦИОННЫЕ БЛОКИ ----- */
+    .info-block,
+    .info-block-old,
+    .info-block-crb,
+    .info-block-crb1 {
+        height: auto;
+        min-height: 500px;
+        padding: 24px;
+        padding-right: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .info-text {
+        max-width: 100%;
+        padding-right: 0;
+    }
+    
+    .info-text h2 {
+        font-size: 1.25rem;
+    }
+    
+    .info-text p {
+        font-size: 0.875rem;
+    }
+    
+    .info-bg-image,
+    .info-bg-image-old,
+    .info-bg-image-crb,
+    .info-bg-video,
+    .info-bg-video-dend {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        right: 0;
+        top: 0;
+        transform: none;
+        margin-top: 16px;
+    }
+    
+    /* ----- КРУГОВОЙ НАВИГАТОР ----- */
+    .interactive-phagocytosis {
+        height: auto;
+        min-height: 500px;
+        flex-direction: column;
+        padding: 16px;
+    }
+    
+    .circle-navigator {
+        width: 100%;
+        min-height: 350px;
+    }
+    
+    .stage-wheel {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .wheel-center {
+        width: 180px;
+        height: 180px;
+        padding: 20px;
+    }
+    
+    .digit-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-130px) rotate(calc(-1 * var(--angle)));
+    }
+    
+    .digit-circle.active {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-130px) rotate(calc(-1 * var(--angle))) scale(1.15);
+    }
+    
+    .stage-description h3 {
+        font-size: 1rem;
+    }
+    
+    .stage-description p {
+        font-size: 0.875rem;
+    }
+    
+    .image-container {
+        position: relative;
+        height: 200px;
+        margin-top: 16px;
+    }
+    
+    /* ----- 3D КОНТЕЙНЕРЫ ----- */
+    .three-section,
+    .three-container {
+        height: 350px;
+    }
+    
+    .three-box {
+        min-height: 300px;
+        max-height: 400px;
+    }
+    
+    .three-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .three-title {
+        font-size: 0.875rem;
+    }
+    
+    /* ----- КЛЕТКА С ЗУМОМ ----- */
+    .cell-viewer {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .cell-info {
+        padding: 16px 20px;
+    }
+    
+    .cell-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .cell-info p,
+    .cell-info ul {
+        font-size: 0.875rem;
+    }
+    
+    .cell-zoom-canvas {
+        height: 300px;
+    }
+    
+    .cell-gif {
+        height: 100%;
+    }
+    
+    .receptor img {
+        height: 100px;
+    }
+    
+    .cell-controls {
+        gap: 16px;
+    }
+    
+    .control-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+    
+    /* ----- ТАБЛИЦЫ ----- */
+    .info-table {
+        font-size: 0.875rem;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .info-table thead th,
+    .info-table td {
+        padding: 10px 12px;
+        white-space: nowrap;
+    }
+    
+    /* ----- ОПРЕДЕЛЕНИЯ И ШАГИ ----- */
+    .definitions-grid,
+    .definitions-container,
+    .small-definition-container,
+    .steps-block {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .definition-block,
+    .small-definition-block,
+    .step-card {
+        padding: 16px 20px;
+    }
+    
+    .step-number {
+        font-size: 200px;
+        left: 0;
+    }
+    
+    .step-text {
+        font-size: 0.875rem;
+    }
+    
+    .definition-title,
+    .definition-text {
+        font-size: 0.875rem;
+    }
+    
+    /* ----- ЛАБОРАТОРНЫЕ ТЕСТЫ ----- */
+    .lab-tests-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .lab-test-card {
+        min-height: 140px;
+        padding: 16px;
+    }
+    
+    .lab-test-text {
+        font-size: 0.875rem;
+    }
+    
+    .lab-test-card::before {
+        width: 120px;
+        height: 120px;
+        right: -20px;
+        bottom: -20px;
+    }
+    
+    /* ----- ВАЖНЫЕ БЛОКИ ----- */
+    .important-block,
+    .q-block {
+        padding: 16px 20px;
+        margin: 20px 0;
+    }
+    
+    .important-title,
+    .q-title {
+        font-size: 0.875rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .important-icon,
+    .q-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .important-text,
+    .q-text {
+        font-size: 0.875rem;
+    }
+    
+    /* ----- СХЕМЫ ----- */
+    .scheme-wrapper {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .scheme-block {
+        padding: 20px;
+    }
+    
+    .block-title {
+        font-size: 1.1rem;
+    }
+    
+    .rectangles {
+        gap: 20px;
+    }
+    
+    .rectangle {
+        font-size: 0.875rem;
+        padding: 8px 12px;
+    }
+    
+    .images-grid-7,
+    .images-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .image-item img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* ----- ШАГИ С ИКОНКАМИ ----- */
+    .steps-icons {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .steps-icon {
+        height: 200px;
+    }
+    
+    .steps-text {
+        font-size: 150px;
+        left: 0;
+    }
+    
+    .steps-icon-front img {
+        width: 280px;
+        height: 280px;
+        right: -80px;
+        bottom: -80px;
+    }
+    
+    .steps-flip-icon {
+        right: 120px;
+        bottom: 10px;
+    }
+    
+    /* ----- КРУГЛАЯ СЕКЦИЯ ----- */
+    .circle-section {
+        height: auto;
+        min-height: 500px;
+        padding: 20px;
+        flex-direction: column;
+    }
+    
+    .circle-container {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    
+    .circle {
+        width: 280px;
+        height: 280px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .dot {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .dot.active {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .dot:nth-child(1),
+    .dot:nth-child(2),
+    .dot:nth-child(3),
+    .dot:nth-child(4),
+    .dot:nth-child(5),
+    .dot:nth-child(6) {
+        transform: rotate(calc(var(--dot-angle, 0deg))) translateX(140px);
+    }
+    
+    .static-text-left {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    
+    .circle-text-recept {
+        left: 0;
+        width: 100%;
+    }
+    
+    .recept-table {
+        grid-template-columns: 1fr;
+    }
+    
+    .recept-cell {
+        font-size: 0.875rem;
+        padding: 8px 12px;
+    }
+    
+    /* ----- ПРОГРЕСС КУРСА ----- */
+    .course-progress {
+        margin: 32px auto 16px auto;
+    }
+    
+    .course-info {
+        font-size: 0.875rem;
+    }
+    
+    .progress-bars .bar {
+        height: 4px;
+    }
+    
+    /* ----- КНОПКИ НАВИГАЦИИ ----- */
+    .navigation {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .next-btn,
+    .prev-btn,
+    .test-btn,
+    .next-theme-btn {
+        padding: 12px 20px;
+        font-size: 0.875rem;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+    
+    .back-link {
+        font-size: 0.875rem;
+        padding: 4px 10px;
+    }
+    
+    /* ----- ТЕКСТОВЫЕ БЛОКИ ----- */
+    .text-block {
+        padding: 16px 20px;
+        font-size: 0.875rem;
+        margin: 16px 0;
+    }
+    
+    .theme-content p {
+        font-size: 0.875rem;
+        margin-bottom: 10px;
+    }
+    
+    .theme-content li {
+        font-size: 0.875rem;
+        margin-bottom: 6px;
+    }
+    
+    /* ----- ВИДЕО КОНТЕЙНЕРЫ ----- */
+    .video-container video {
+        margin-top: 12px;
+        margin-bottom: 32px;
+    }
+    
+    .content-image,
+    .zoom-img {
+        margin-top: 12px;
+        margin-bottom: 32px;
+    }
+    
+    /* ----- МОДАЛЬНОЕ ОКНО ----- */
+    .modal-content {
+        max-width: 95%;
+        max-height: 85%;
+    }
+    
+    .close {
+        font-size: 32px;
+        top: 15px;
+        right: 20px;
+    }
+    
+    /* ----- ТЕСТЫ ----- */
+    .question-block {
+        padding: 24px;
+        margin: 16px 0;
+    }
+    
+    .answer {
+        padding: 12px 14px;
+        font-size: 0.875rem;
+        gap: 10px;
+    }
+    
+    .answer::before {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .test-result {
+        font-size: 16px;
+    }
+    
+    /* ----- СКРОЛЛБАР ----- */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        border-radius: 4px;
+    }
+    
+    /* ----- FOOTER ----- */
+    footer {
+        font-size: 0.875rem;
+        padding: 12px 0;
+    }
+}
+
+/* ============================================
+   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    /* ----- КОНТЕЙНЕРЫ ----- */
+    .container,
+    .theme-content {
+        padding: 0 12px;
+    }
+    
+    /* ----- ЗАГОЛОВКИ ----- */
+    header h1 {
+        font-size: 1.5rem;
+        padding: 16px 0;
+    }
+    
+    .theme-title {
+        font-size: 1.5rem;
+    }
+    
+    /* ----- TOC СЕТКА ----- */
+    .toc-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .toc-card a {
+        height: 140px;
+        padding: 12px 10px 30px 10px;
+    }
+    
+    .toc-card a img {
+        width: 120px;
+        height: 120px;
+        right: -40px;
+        top: 60%;
+    }
+    
+    /* ----- САЙДБАР ----- */
+    .sidebar {
+        height: 56px;
+        padding: 0 8px;
+    }
+    
+    .sidebar-logo img {
+        width: 32px;
+    }
+    
+    .sidebar-nav {
+        gap: 8px;
+    }
+    
+    .sidebar-nav a {
+        font-size: 0.75rem;
+        padding-left: 6px;
+    }
+    
+    /* ----- КАРТОЧКИ ----- */
+    .card {
+        height: 350px;
+    }
+    
+    /* ----- КРУГОВОЙ НАВИГАТОР ----- */
+    .stage-wheel {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .wheel-center {
+        width: 150px;
+        height: 150px;
+        padding: 15px;
+    }
+    
+    .digit-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.875rem;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-110px) rotate(calc(-1 * var(--angle)));
+    }
+    
+    .digit-circle.active {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-110px) rotate(calc(-1 * var(--angle))) scale(1.15);
+    }
+    
+    /* ----- 3D КОНТЕЙНЕРЫ ----- */
+    .three-section,
+    .three-container {
+        height: 280px;
+    }
+    
+    .three-box {
+        min-height: 250px;
+    }
+    
+    /* ----- ЛАБОРАТОРНЫЕ ТЕСТЫ ----- */
+    .lab-tests-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-test-card {
+        min-height: 120px;
+    }
+    
+    /* ----- КРУГЛАЯ СЕКЦИЯ ----- */
+    .circle {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .dot {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+    }
+    
+    .dot.active {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* ----- КНОПКИ ----- */
+    .next-btn,
+    .prev-btn,
+    .test-btn,
+    .next-theme-btn {
+        padding: 10px 16px;
+        font-size: 0.8125rem;
+    }
+    
+    /* ----- ТАБЛИЦЫ ----- */
+    .info-table {
+        font-size: 0.75rem;
+    }
+    
+    .info-table thead th,
+    .info-table td {
+        padding: 8px 10px;
+    }
+    
+    /* ----- ТЕКСТ ----- */
+    .text-block,
+    .definition-block,
+    .important-block,
+    .q-block {
+        padding: 14px 16px;
+        font-size: 0.8125rem;
+    }
+    
+    .theme-content p,
+    .theme-content li {
+        font-size: 0.8125rem;
+    }
+}
+
+/* ============================================
+   АЛЬБОМНАЯ ОРИЕНТАЦИЯ НА МОБИЛЬНЫХ
+   ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .sidebar {
+        height: 56px;
+    }
+    
+    .three-section,
+    .three-container,
+    .interactive-phagocytosis,
+    .circle-section {
+        min-height: 300px;
+        max-height: 350px;
+    }
+    
+    .card {
+        height: 280px;
+    }
+    
+    .toc-card a {
+        height: 120px;
+    }
+    
+    .info-block,
+    .info-block-old {
+        min-height: 300px;
+    }
+}
+
+/* ============================================
+   УЛУЧШЕНИЯ ДЛЯ СЕНСОРНЫХ ЭКРАНОВ
+   ============================================ */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Увеличиваем области клика для пальцев */
+    .toc-card a,
+    .card,
+    .answer,
+    .control-btn,
+    .digit-circle,
+    .dot,
+    .receptor,
+    .highlight-area {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Убираем hover эффекты на тач-устройствах */
+    .toc-card a:hover,
+    .card-front:hover .card-image img,
+    .steps-icon:hover .steps-icon-front img {
+        transform: none;
+    }
+    
+    /* Делаем кнопки более заметными */
+    .next-btn,
+    .prev-btn,
+    .test-btn,
+    .next-theme-btn {
+        min-height: 48px;
+        touch-action: manipulation;
+    }
+    
+    /* Улучшаем видимость активных состояний */
+    .answer:has(input[type="radio"]:checked),
+    .digit-circle.active,
+    .dot.active {
+        background: rgba(26, 118, 255, 0.4);
+    }
+}
+
+/* ============================================
+   ПРИНУДИТЕЛЬНЫЙ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ
+   ДЛЯ ТАБЛИЦ НА МОБИЛЬНЫХ
+   ============================================ */
+
+@media (max-width: 768px) {
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+    }
+    
+    .table-wrapper table {
+        min-width: 600px;
+    }
+}
+
+/* ============================================
+   ОПТИМИЗАЦИЯ ЗАГРУЗКИ НА МОБИЛЬНЫХ
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Отключаем тяжелые анимации */
+    .back-video,
+    .bg-video,
+    .bg-video1 {
+        display: none;
+    }
+    
+    body {
+        background-color: rgb(194, 218, 255);
+    }
+    
+    /* Упрощаем тени для производительности */
+    .toc-card a,
+    .card-front,
+    .card-back,
+    .three-section,
+    .three-container {
+        box-shadow: 0 4px 12px rgba(0, 60, 139, 0.15);
+    }
+    
+    /* Отключаем backdrop-filter на слабых устройствах */
+    .sidebar,
+    .definition-block,
+    .small-definition-block,
+    .step-card,
+    .cell-info {
+        backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+}
