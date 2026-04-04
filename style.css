@@ -4044,3 +4044,1241 @@ body::after {
         background: rgba(255, 255, 255, 0.5);
     }
 }
+
+
+
+
+
+/* ============================================
+   CIRCLE SECTION - МОБИЛЬНАЯ ВЕРСИЯ (ИСПРАВЛЕНИЕ)
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* ----- ОСНОВНОЙ КОНТЕЙНЕР ----- */
+    .circle-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+        min-height: 700px;
+        padding: 20px 16px;
+        padding-top: 40px;
+        overflow: visible;
+        background-color: rgba(36, 83, 211, 0.774);
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 53, 122, 0.18);
+    }
+    
+    /* ----- ВИДЕО НА ЗАДНЕМ ПЛАНЕ - ИСПРАВЛЕНИЕ ----- */
+    .bg-video,
+    .bg-video1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        object-fit: cover;
+        z-index: 0;
+        pointer-events: none;
+        top: auto !important;
+        right: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .bg-video1 {
+        top: auto !important;
+        bottom: 0 !important;
+    }
+    
+    /* ----- КОНТЕЙНЕР КРУГА - ЦЕНТРИРОВАНИЕ ----- */
+    .circle-container {
+        position: relative;
+        left: 0 !important;
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+        flex-shrink: 0;
+        overflow: visible;
+        margin: 0 auto 24px auto;
+        order: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* ----- КРУГ - ЦЕНТРИРОВАНИЕ ----- */
+    .circle {
+        position: absolute;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.575);
+        background: rgba(255, 255, 255, 0.068);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3),
+                    inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* ----- ТОЧКИ НА КРУГЕ ----- */
+    .dot {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+        margin: 0;
+    }
+    
+    .dot.active {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+    
+    /* Радиус для точек (половина ширины круга = 140px) */
+    .dot:nth-child(1) { transform: rotate(0deg) translateX(140px); }
+    .dot:nth-child(2) { transform: rotate(60deg) translateX(140px); }
+    .dot:nth-child(3) { transform: rotate(120deg) translateX(140px); }
+    .dot:nth-child(4) { transform: rotate(180deg) translateX(140px); }
+    .dot:nth-child(5) { transform: rotate(240deg) translateX(140px); }
+    .dot:nth-child(6) { transform: rotate(300deg) translateX(140px); }
+    
+    /* ----- ТЕКСТ СЛЕВА ОТ КРУГА ----- */
+    .static-text-left {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        width: 100px;
+        text-align: right;
+        pointer-events: none;
+        z-index: 2;
+    }
+    
+    .static-text-left .text-item {
+        font-size: 16px;
+    }
+    
+    /* ----- ЦЕНТРАЛЬНОЕ ОПИСАНИЕ СТАДИЙ - ИСПРАВЛЕНИЕ ----- */
+    .wheel-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 200px;
+        background: rgba(28, 8, 141, 0.6);
+        backdrop-filter: blur(12px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3),
+                    inset 0 0 20px rgba(255, 255, 255, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        z-index: 10;
+        overflow: hidden;
+    }
+    
+    /* Описание стадий */
+    .stage-description {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        word-break: break-word;
+        font-weight: 300;
+    }
+    
+    .stage-description.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .stage-description h3 {
+        font-size: 1rem;
+        font-weight: 600 !important;
+        margin: 0 0 10px 0;
+        color: #ffffff !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        line-height: 1.3;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    
+    .stage-description p {
+        font-size: 0.875rem;
+        line-height: 1.4;
+        margin: 0;
+        opacity: 0.95;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    
+    /* ----- БЛОК С РЕЦЕПТОРАМИ ----- */
+    .circle-text-recept {
+        position: relative;
+        left: 0 !important;
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        order: 2;
+        margin: 0 auto 20px auto;
+        z-index: 1;
+    }
+    
+    /* ----- ТАБЛИЦА РЕЦЕПТОРОВ - 3 КОЛОНКИ ----- */
+    .recept-table {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .recept-cell {
+        padding: 8px 10px;
+        font-size: 13px;
+        line-height: 1.3;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        text-align: center;
+        font-weight: 500;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    /* ----- СТАДИИ ----- */
+    .stage {
+        width: 100%;
+    }
+    
+    .stage.active {
+        display: block;
+    }
+    
+    /* ----- СКРЫВАЕМ ТЕКСТ СЛЕВА НА МОБИЛЬНЫХ ----- */
+    .static-text-left {
+        display: none;
+    }
+}
+
+/* ============================================
+   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    .circle-section {
+        min-height: 600px;
+        padding: 16px 12px;
+        padding-top: 30px;
+    }
+    
+    .circle-container {
+        max-width: 280px;
+        height: 280px;
+    }
+    
+    .circle {
+        width: 240px;
+        height: 240px;
+    }
+    
+    /* Точки еще меньше */
+    .dot {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+    
+    .dot.active {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    /* Радиус для точек (половина ширины круга = 120px) */
+    .dot:nth-child(1) { transform: rotate(0deg) translateX(120px); }
+    .dot:nth-child(2) { transform: rotate(60deg) translateX(120px); }
+    .dot:nth-child(3) { transform: rotate(120deg) translateX(120px); }
+    .dot:nth-child(4) { transform: rotate(180deg) translateX(120px); }
+    .dot:nth-child(5) { transform: rotate(240deg) translateX(120px); }
+    .dot:nth-child(6) { transform: rotate(300deg) translateX(120px); }
+    
+    /* Центральное описание */
+    .wheel-center {
+        width: 160px;
+        height: 160px;
+        padding: 15px;
+    }
+    
+    .stage-description h3 {
+        font-size: 0.875rem;
+    }
+    
+    .stage-description p {
+        font-size: 0.75rem;
+    }
+    
+    /* Рецепторы */
+    .circle-text-recept {
+        max-width: 350px;
+    }
+    
+    .recept-cell {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    
+    /* Видео занимает меньше места */
+    .bg-video,
+    .bg-video1 {
+        height: 50%;
+    }
+}
+
+/* Для мобильных - более плавный переход */
+@media (max-width: 768px) {
+    .bg-video,
+    .bg-video1 {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 15%,
+            rgba(0, 0, 0, 0.5) 30%,
+            rgba(0, 0, 0, 0.8) 50%,
+            black 70%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 15%,
+            rgba(0, 0, 0, 0.5) 30%,
+            rgba(0, 0, 0, 0.8) 50%,
+            black 70%
+        );
+    }
+    
+    .bg-video::after,
+    .bg-video1::after {
+        height: 60%;
+        background: linear-gradient(
+            to bottom,
+            rgba(36, 83, 211, 0) 0%,
+            rgba(36, 83, 211, 0.2) 20%,
+            rgba(36, 83, 211, 0.4) 40%,
+            rgba(36, 83, 211, 0.7) 70%,
+            rgba(36, 83, 211, 1) 100%
+        );
+    }
+}
+
+/* Альтернатива: размытие края через filter */
+@media (max-width: 768px) {
+    .bg-video,
+    .bg-video1 {
+        filter: blur(0px);
+    }
+    
+    /* Создаем размытый оверлей для верхнего края */
+    .circle-section::before {
+        content: "";
+        position: absolute;
+        top: 40%;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(
+            to bottom,
+            rgba(36, 83, 211, 0.8) 0%,
+            rgba(36, 83, 211, 0) 100%
+        );
+        filter: blur(20px);
+        pointer-events: none;
+        z-index: 2;
+    }
+}
+
+
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .wheel-center {
+        width: 180px;
+        height: 180px;
+        padding: 15px;
+        background: rgba(28, 8, 141, 0.85); /* Ещё более непрозрачный */
+    }
+    
+    .stage-description {
+        padding: 15px;
+    }
+    
+    .stage-description h3 {
+        font-size: 0.9rem;
+        font-weight: 800 !important;
+        text-shadow: 0 2px 10px rgba(0,0,0,1); /* Максимальная тень */
+    }
+    
+    .stage-description p {
+        font-size: 0.8rem;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+    }
+}
+
+@media (max-width: 480px) {
+    .wheel-center {
+        width: 160px;
+        height: 160px;
+        padding: 12px;
+        background: rgba(28, 8, 141, 0.9);
+    }
+    
+    .stage-description h3 {
+        font-size: 0.8rem;
+    }
+    
+    .stage-description p {
+        font-size: 0.75rem;
+    }
+}
+
+/* ----- МОБИЛЬНЫЕ 768px (круг 280px, радиус 140px) ----- */
+@media (max-width: 768px) {
+    .dot {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+        margin-left: -16px;
+        margin-top: -16px;
+    }
+    
+    .dot.active {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        margin-left: -24px;
+        margin-top: -24px;
+    }
+    
+    /* Радиус 140px (половина круга 280px) */
+    .dot:nth-child(1) { --dot-angle: 0deg; transform: rotate(0deg) translateX(140px) rotate(0deg); }
+    .dot:nth-child(2) { --dot-angle: 60deg; transform: rotate(60deg) translateX(140px) rotate(-60deg); }
+    .dot:nth-child(3) { --dot-angle: 120deg; transform: rotate(120deg) translateX(140px) rotate(-120deg); }
+    .dot:nth-child(4) { --dot-angle: 180deg; transform: rotate(180deg) translateX(140px) rotate(-180deg); }
+    .dot:nth-child(5) { --dot-angle: 240deg; transform: rotate(240deg) translateX(140px) rotate(-240deg); }
+    .dot:nth-child(6) { --dot-angle: 300deg; transform: rotate(300deg) translateX(140px) rotate(-300deg); }
+    
+    .dot.active {
+        transform: rotate(var(--dot-angle)) translateX(140px) rotate(calc(-1 * var(--dot-angle))) scale(1.15);
+    }
+}
+
+/* ----- МОБИЛЬНЫЕ 480px (круг 240px, радиус 120px) ----- */
+@media (max-width: 480px) {
+    .dot {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+        margin-left: -14px;
+        margin-top: -14px;
+    }
+    
+    .dot.active {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+    
+    /* Радиус 120px (половина круга 240px) */
+    .dot:nth-child(1) { --dot-angle: 0deg; transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    .dot:nth-child(2) { --dot-angle: 60deg; transform: rotate(60deg) translateX(120px) rotate(-60deg); }
+    .dot:nth-child(3) { --dot-angle: 120deg; transform: rotate(120deg) translateX(120px) rotate(-120deg); }
+    .dot:nth-child(4) { --dot-angle: 180deg; transform: rotate(180deg) translateX(120px) rotate(-180deg); }
+    .dot:nth-child(5) { --dot-angle: 240deg; transform: rotate(240deg) translateX(120px) rotate(-240deg); }
+    .dot:nth-child(6) { --dot-angle: 300deg; transform: rotate(300deg) translateX(120px) rotate(-300deg); }
+    
+    .dot.active {
+        transform: rotate(var(--dot-angle)) translateX(120px) rotate(calc(-1 * var(--dot-angle))) scale(1.15);
+    }
+}
+
+/* ----- ЦИФРЫ ВНУТРИ ТОЧЕК - ЧТОБЫ НЕ ПЕРЕВОРАЧИВАЛИСЬ ----- */
+.dot::before {
+    content: attr(data-number);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ - ЦЕНТРИРОВАНИЕ ВСЕГО КОНТЕНТА
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* ----- BODY И HTML ----- */
+    html,
+    body {
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* ----- CONTAINER - ГЛАВНОЕ ИСПРАВЛЕНИЕ ----- */
+    .container {
+        max-width: 100% !important;
+        margin-left: 0 !important; /* Убираем отступ для сайдбара */
+        margin-right: 0 !important;
+        margin: 0 auto !important; /* Центрируем */
+        width: 100% !important;
+        padding: 0 16px !important; /* Отступы по краям */
+        position: relative !important;
+        z-index: 1 !important;
+    }
+    
+    /* ----- THEME CONTENT ----- */
+    .theme-content {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* ----- ЗАГОЛОВКИ ----- */
+    header h1 {
+        text-align: center !important;
+        padding: 20px 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .theme-title {
+        text-align: center !important;
+        font-size: 1.3rem !important;
+    }
+    
+    .theme-subtitle {
+        text-align: center !important;
+        font-size: 0.75rem !important;
+    }
+    
+    h2, h3 {
+        text-align: center !important;
+    }
+    
+    .theme-content h2 {
+        text-align: center !important;
+        font-size: 1.1rem !important;
+        margin: 24px 0 16px !important;
+    }
+    
+    .theme-content h3 {
+        text-align: center !important;
+        font-size: 0.95rem !important;
+    }
+    
+    /* ----- SIDEBAR ----- */
+    .sidebar {
+        padding: 0 16px !important;
+        margin: 0 !important;
+    }
+    
+    /* ----- ВСЕ СЕКЦИИ КОНТЕНТА ----- */
+    .theme-content > section,
+    .theme-content > div.cards,
+    .theme-content > .cell-viewer,
+    .theme-content > .interactive-phagocytosis,
+    .theme-content > .circle-section,
+    .theme-content > .info-block,
+    .theme-content > .info-block-old,
+    .theme-content > .info-block-crb,
+    .theme-content > .info-block-crb1,
+    .theme-content > .three-section,
+    .theme-content > .three-container,
+    .theme-content > .definitions-grid,
+    .theme-content > .definitions-container,
+    .theme-content > .small-definition-container,
+    .theme-content > .steps-block,
+    .theme-content > .lab-tests,
+    .theme-content > .scheme-wrapper {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* ----- INFO БЛОКИ ----- */
+    .info-block,
+    .info-block-old,
+    .info-block-crb,
+    .info-block-crb1 {
+        padding: 24px 20px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: auto !important;
+        min-height: 450px !important;
+    }
+    
+    .info-text {
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: center !important;
+    }
+    
+    .info-bg-image,
+    .info-bg-image-old,
+    .info-bg-image-crb,
+    .info-bg-video,
+    .info-bg-video-dend {
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        margin: 20px auto !important;
+        display: block !important;
+    }
+    
+    /* ----- КРУГОВАЯ СЕКЦИЯ ----- */
+    .circle-section {
+        padding: 20px 16px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: auto !important;
+        min-height: 650px !important;
+    }
+    
+    .circle-container {
+        left: 0 !important;
+        position: relative !important;
+        margin: 0 auto 24px auto !important;
+        width: 100% !important;
+        max-width: 320px !important;
+    }
+    
+    .circle {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .circle-text-recept {
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 16px !important;
+    }
+    
+    /* ----- КАРТОЧКИ ----- */
+    .cards {
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin: 24px auto !important;
+    }
+    
+    .card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* ----- 3D КОНТЕЙНЕРЫ ----- */
+    .three-section,
+    .three-container {
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin: 24px auto !important;
+        width: 100% !important;
+    }
+    
+    /* ----- ТАБЛИЦЫ ----- */
+    .info-table {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        display: block !important;
+        overflow-x: auto !important;
+    }
+    
+    .table-title {
+        text-align: center !important;
+    }
+    
+    /* ----- ОПРЕДЕЛЕНИЯ ----- */
+    .definitions-grid,
+    .definitions-container,
+    .small-definition-container,
+    .steps-block {
+        padding: 0 !important;
+        grid-template-columns: 1fr !important;
+    }
+    
+    .definition-block,
+    .small-definition-block,
+    .step-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* ----- ЛАБОРАТОРНЫЕ ТЕСТЫ ----- */
+    .lab-tests-grid {
+        padding: 0 !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* ----- ВАЖНЫЕ БЛОКИ ----- */
+    .important-block,
+    .q-block,
+    .text-block {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        margin: 20px auto !important;
+    }
+    
+    /* ----- КЛЕТКА С ЗУМОМ ----- */
+    .cell-viewer {
+        padding: 0 !important;
+        flex-direction: column !important;
+        margin: 24px auto !important;
+    }
+    
+    .cell-info {
+        width: 100% !important;
+        padding: 20px !important;
+        margin: 0 !important;
+    }
+    
+    /* ----- НАВИГАЦИЯ ----- */
+    .navigation {
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 24px auto !important;
+        width: 100% !important;
+    }
+    
+    .next-btn,
+    .prev-btn,
+    .test-btn,
+    .next-theme-btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+    }
+    
+    /* ----- ФУТЕР ----- */
+    footer {
+        padding: 15px 16px !important;
+        text-align: center !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* ----- ИЗОБРАЖЕНИЯ И ВИДЕО ----- */
+    .content-image,
+    .zoom-img {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .video-container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    
+    .video-container video {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+    }
+    
+    /* ----- СХЕМЫ ----- */
+    .scheme-wrapper {
+        grid-template-columns: 1fr !important;
+        padding: 0 !important;
+    }
+    
+    .scheme-block {
+        padding: 20px !important;
+    }
+    
+    /* ----- ПРОГРЕСС КУРСА ----- */
+    .course-progress {
+        padding: 0 16px !important;
+        margin: 32px auto !important;
+    }
+    
+    /* ----- ТОЧКИ НА КРУГЕ ----- */
+    .dot {
+        margin-left: -16px !important;
+        margin-top: -16px !important;
+    }
+    
+    .dot.active {
+        margin-left: -24px !important;
+        margin-top: -24px !important;
+    }
+}
+
+/* ============================================
+   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px !important;
+    }
+    
+    .info-block,
+    .info-block-old,
+    .info-block-crb,
+    .info-block-crb1 {
+        padding: 20px 16px !important;
+        min-height: 400px !important;
+    }
+    
+    .important-block,
+    .q-block,
+    .text-block {
+        padding: 18px 16px !important;
+    }
+    
+    .circle-section {
+        padding: 16px 12px !important;
+        min-height: 550px !important;
+    }
+    
+    .lab-tests-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    header h1 {
+        font-size: 1.25rem !important;
+    }
+    
+    .theme-title {
+        font-size: 1.15rem !important;
+    }
+}
+
+/* ============================================
+   ИСПРАВЛЕНИЕ ПЛАВНОЙ ЗАГРУЗКИ
+   ============================================ */
+
+.page-transition-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+
+.page-transition-overlay.active {
+    pointer-events: auto !important;
+}
+
+.page-load-progress {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    pointer-events: none !important;
+}
+
+body.loaded::after {
+    display: none !important;
+}
+
+/* ============================================
+   ВИДЕО ДЕНДРИТНОЙ КЛЕТКИ - МОБИЛЬНАЯ АДАПТАЦИЯ
+   ============================================ */
+
+/* ----- ДЕСКТОП ----- */
+.info-bg-video-dend {
+    position: absolute;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    width: 100% !important;
+    height: 60% !important;
+    object-fit: cover;
+    object-position: center bottom;
+    z-index: 0;
+    pointer-events: none;
+    
+    /* Плавный переход сверху через маску */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 15%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0.8) 50%,
+        black 70%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 15%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0.8) 50%,
+        black 70%
+    );
+}
+
+/* Градиент поверх видео для плавного перехода */
+.info-bg-video-dend::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+        to bottom,
+        rgba(36, 83, 211, 0) 0%,
+        rgba(36, 83, 211, 0.2) 20%,
+        rgba(36, 83, 211, 0.4) 40%,
+        rgba(36, 83, 211, 0.7) 70%,
+        rgba(36, 83, 211, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ----- МОБИЛЬНЫЕ 768px ----- */
+@media (max-width: 768px) {
+    .info-bg-video-dend {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        width: 100% !important;
+        height: 50% !important;
+        object-fit: cover;
+        object-position: center bottom;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        
+        /* Более плавный переход для мобильных */
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.15) 10%,
+            rgba(0, 0, 0, 0.4) 25%,
+            rgba(0, 0, 0, 0.7) 45%,
+            black 65%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.15) 10%,
+            rgba(0, 0, 0, 0.4) 25%,
+            rgba(0, 0, 0, 0.7) 45%,
+            black 65%
+        );
+    }
+    
+    .info-bg-video-dend::after {
+        height: 60%;
+        background: linear-gradient(
+            to bottom,
+            rgba(36, 83, 211, 0) 0%,
+            rgba(36, 83, 211, 0.15) 15%,
+            rgba(36, 83, 211, 0.35) 35%,
+            rgba(36, 83, 211, 0.65) 60%,
+            rgba(36, 83, 211, 1) 100%
+        );
+    }
+    
+    /* Дополнительный блюр для верхнего края */
+    .info-block-old::before {
+        content: "";
+        position: absolute;
+        top: 40%;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(
+            to bottom,
+            rgba(36, 83, 211, 0.8) 0%,
+            rgba(36, 83, 211, 0) 100%
+        );
+        filter: blur(20px);
+        pointer-events: none;
+        z-index: 2;
+    }
+}
+
+/* ----- МОБИЛЬНЫЕ 480px ----- */
+@media (max-width: 480px) {
+    .info-bg-video-dend {
+        height: 45% !important;
+        
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.1) 8%,
+            rgba(0, 0, 0, 0.35) 20%,
+            rgba(0, 0, 0, 0.65) 40%,
+            black 60%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.1) 8%,
+            rgba(0, 0, 0, 0.35) 20%,
+            rgba(0, 0, 0, 0.65) 40%,
+            black 60%
+        );
+    }
+    
+    .info-bg-video-dend::after {
+        height: 65%;
+    }
+    
+    .info-block-old::before {
+        height: 120px;
+        top: 35%;
+    }
+}
+
+/* ----- КОНТЕЙНЕР БЛОКА ----- */
+.info-block-old {
+    position: relative;
+    overflow: visible !important; /* Разрешаем выход за границы для эффекта */
+}
+
+/* Текст поверх видео */
+.info-block-old .info-text {
+    position: relative;
+    z-index: 3; /* Поверх видео и градиентов */
+}
+
+/* ============================================
+   INFO-BLOCK-OLD - ИСПРАВЛЕНИЕ ПЕРЕКРЫТИЯ
+   ============================================ */
+
+/* ----- БАЗОВЫЙ КОНТЕЙНЕР ----- */
+.info-block-old {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important; /* Вертикальное расположение */
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: 550px !important;
+    padding: 40px 24px !important;
+    padding-bottom: 20px !important;
+    overflow: visible !important;
+    z-index: 1 !important;
+}
+
+/* ----- ТЕКСТОВЫЙ БЛОК ----- */
+.info-block-old .info-text {
+    position: relative !important;
+    z-index: 3 !important; /* Текст ПОВЕРХ всего */
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+    margin-bottom: 20px !important; /* Отступ от видео */
+    color: #ffffff !important;
+    text-align: center !important;
+}
+
+.info-block-old .info-text h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 16px !important;
+    text-align: center !important;
+}
+
+.info-block-old .info-text p {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+}
+
+/* ----- ВИДЕО ДЕНДРИТНОЙ КЛЕТКИ ----- */
+.info-bg-video-dend {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    width: 100% !important;
+    height: 55% !important; /* Занимает нижнюю часть */
+    object-fit: cover !important;
+    object-position: center bottom !important;
+    z-index: 1 !important; /* Видео НИЖЕ текста */
+    pointer-events: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    /* Плавный переход сверху */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 15%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0.8) 50%,
+        black 70%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 15%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0.8) 50%,
+        black 70%
+    );
+}
+
+/* Градиент поверх видео */
+.info-bg-video-dend::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(
+        to bottom,
+        rgba(36, 83, 211, 0) 0%,
+        rgba(36, 83, 211, 0.2) 20%,
+        rgba(36, 83, 211, 0.4) 40%,
+        rgba(36, 83, 211, 0.7) 70%,
+        rgba(36, 83, 211, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ----- ДОПОЛНИТЕЛЬНЫЙ БЛЮР ДЛЯ ПЕРЕХОДА ----- */
+.info-block-old::before {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+        to bottom,
+        rgba(36, 83, 211, 0.8) 0%,
+        rgba(36, 83, 211, 0) 100%
+    );
+    filter: blur(20px);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ----- ВАЖНЫЕ БЛОКИ ВНУТРИ ----- */
+.info-block-old .important-block {
+    position: relative !important;
+    z-index: 3 !important;
+    margin: 20px 0 !important;
+    padding: 18px 20px !important;
+}
+
+/* ============================================
+   МОБИЛЬНЫЕ 768px
+   ============================================ */
+
+@media (max-width: 768px) {
+    .info-block-old {
+        min-height: 500px !important;
+        padding: 32px 20px !important;
+    }
+    
+    .info-bg-video-dend {
+        height: 50% !important;
+    }
+    
+    .info-block-old::before {
+        top: 40%;
+        height: 120px;
+    }
+    
+    .info-block-old .info-text h2 {
+        font-size: 1.1rem !important;
+    }
+    
+    .info-block-old .info-text p {
+        font-size: 0.8125rem !important;
+    }
+}
+
+/* ============================================
+   МОБИЛЬНЫЕ 480px
+   ============================================ */
+
+@media (max-width: 480px) {
+    .info-block-old {
+        min-height: 450px !important;
+        padding: 24px 16px !important;
+    }
+    
+    .info-bg-video-dend {
+        height: 45% !important;
+    }
+    
+    .info-block-old::before {
+        top: 38%;
+        height: 100px;
+    }
+}
