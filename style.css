@@ -22,7 +22,7 @@ html {
 body {
     font-family: "Geologica", Arial, sans-serif;
     background-color: rgb(194, 218, 255);
-    color: #0c2ec5;
+    color: #0c3dc5;
     margin: 0;
   padding: 0;
     position: relative;
@@ -82,14 +82,14 @@ body::after {
 .theme-title {
     font-size: 3rem; /* основной жирный текст */
     font-weight: 700;
-    color: #0c2ec5;
+    color: #0c3dc5;
 }
 
 /* Заголовок секции */
 h2 {
     margin-top: 0;
     margin-bottom: 16px;
-    color: #0c2ec5;
+    color: #0c3dc5;
 }
 
 /* Сетка оглавления - карточки 4 в ряд */
@@ -129,7 +129,7 @@ h2 {
 .toc-number {
     font-size: 1.125rem;
     font-weight: 700;
-    color: rgba(27, 0, 180, 0.726);
+    color: rgb(20, 57, 182);
     margin-right: 16px;
     letter-spacing: 1px;
     flex-shrink: 0;
@@ -151,6 +151,7 @@ h2 {
     color: rgba(255, 255, 255, 0.95);
 }
 
+
 /* hover эффект */
 .toc-card a:hover {
     background-color: #025bcf;
@@ -158,7 +159,10 @@ h2 {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(26, 119, 255, 0.4);
 }
-
+/* hover эффект */
+.toc-card a:hover .toc-title {
+    color: rgba(255, 255, 255, 0.95);
+}
 /* картинка справа */
 .toc-card a img {
     position: absolute;
@@ -235,7 +239,7 @@ header {
 header h1 {
     font-size: 4rem;
     text-align: left;
-    color: #0c2ec5;
+    color: #0c3dc5;
     margin-top: 2rem;
     padding: 40px 0px;
 }
@@ -638,7 +642,7 @@ footer {
     width: 50px;
     height: 50px;
     background:  #ffffff77;
-    color: rgb(0, 30, 197);
+    color: #0c3dc5;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -860,7 +864,7 @@ footer {
   font-weight: 700;
   text-align: center;
   margin-bottom: 12px;
-  color: #233896;
+  color: #0c3dc5;
 }
 
 /* =================================
@@ -1358,7 +1362,7 @@ footer {
 .theme-content h2 {
     font-size: 2rem; /* меньше */
     font-weight: 600; /* тоньше */
-     color: #0c2ec5;
+     color: #0c3dc5;
     margin: 32px 0 20px; /* компактные отступы */
     letter-spacing: 0.3px; /* лёгкий "воздух" */
 }
@@ -1504,7 +1508,7 @@ footer {
   font-size: 1.125rem;
   line-height: 1;
   text-decoration: none;
-  color: #0051ff;
+  color: #0c3dc5;
 
   transition: 
     color 0.25s ease,
@@ -1643,7 +1647,7 @@ footer {
 /* ЯЧЕЙКИ */
 .info-table td {
     padding: 14px 16px;
-    color: #0e1e66;
+    color: #0738c0;
     background: rgba(255, 255, 255, 0);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -1700,14 +1704,14 @@ footer {
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #025bcf;
+    color: #0c3dc5;
 }
 
 .definition-text {
     margin: 0;
     font-size: 1.125rem;
     line-height: 1.7;
-    color: #20348d;
+    color: #0738c0;
 }
 
 .definition-text strong {
@@ -1826,7 +1830,7 @@ footer {
 .step-text {
     font-size: 1.125rem;
     line-height: 1.5;
-    color: #233896;
+    color: #0738c0;
 }
 /* ===== ЛАБОРАТОРНЫЕ ТЕСТЫ ===== */
 
@@ -1899,7 +1903,7 @@ footer {
     font-weight: 600;
     line-height: 1.4;
 
-    color: #233896;
+    color: #0c3dc5;
 }
 
 .important-block {
@@ -1968,7 +1972,7 @@ footer {
 
     font-size: 1.125rem;
     font-weight: 700;
-    color: #425fe3;
+    color: #0738c0;
     letter-spacing: 0.05em;
    
     
@@ -1991,7 +1995,7 @@ footer {
     margin: 0;
     font-size:1.125rem;
     line-height: 1.7;
-    color: #0c269c;
+    color: #0738c0;
 }
 
 /* ====== КЛЕТКА С ЗУМОМ ====== */
@@ -2198,6 +2202,7 @@ footer {
     font-size: 1.3rem;
     font-weight: 600;
     text-align: center;
+    color: #0c3dc5;
 }
 
 /* Первый блок: прямоугольники */
@@ -2522,7 +2527,7 @@ background-color: rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(58, 24, 255);
+    color: rgb#0c3dc5;
     font-size: 16px;
     font-weight: 600;
     pointer-events: none;
@@ -4946,58 +4951,7 @@ body.loaded::after {
    ВИДЕО ДЕНДРИТНОЙ КЛЕТКИ - МОБИЛЬНАЯ АДАПТАЦИЯ
    ============================================ */
 
-/* ----- ДЕСКТОП ----- */
-.info-bg-video-dend {
-    position: absolute;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    width: 100% !important;
-    height: 60% !important;
-    object-fit: cover;
-    object-position: center bottom;
-    z-index: 0;
-    pointer-events: none;
-    
-    /* Плавный переход сверху через маску */
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0, 0, 0, 0.2) 15%,
-        rgba(0, 0, 0, 0.5) 30%,
-        rgba(0, 0, 0, 0.8) 50%,
-        black 70%
-    );
-    mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0, 0, 0, 0.2) 15%,
-        rgba(0, 0, 0, 0.5) 30%,
-        rgba(0, 0, 0, 0.8) 50%,
-        black 70%
-    );
-}
 
-/* Градиент поверх видео для плавного перехода */
-.info-bg-video-dend::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(
-        to bottom,
-        rgba(36, 83, 211, 0) 0%,
-        rgba(36, 83, 211, 0.2) 20%,
-        rgba(36, 83, 211, 0.4) 40%,
-        rgba(36, 83, 211, 0.7) 70%,
-        rgba(36, 83, 211, 1) 100%
-    );
-    pointer-events: none;
-    z-index: 1;
-}
 
 /* ----- МОБИЛЬНЫЕ 768px ----- */
 @media (max-width: 768px) {
@@ -5098,170 +5052,6 @@ body.loaded::after {
     }
 }
 
-/* ----- КОНТЕЙНЕР БЛОКА ----- */
-.info-block-old {
-    position: relative;
-    overflow: visible !important; /* Разрешаем выход за границы для эффекта */
-}
-
-/* Текст поверх видео */
-.info-block-old .info-text {
-    position: relative;
-    z-index: 3; /* Поверх видео и градиентов */
-}
-
-/* ============================================
-   INFO-BLOCK-OLD - ИСПРАВЛЕНИЕ ПЕРЕКРЫТИЯ
-   ============================================ */
-
-/* ----- БАЗОВЫЙ КОНТЕЙНЕР ----- */
-.info-block-old {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important; /* Вертикальное расположение */
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    height: auto !important;
-    min-height: 550px !important;
-    padding: 40px 24px !important;
-    padding-bottom: 20px !important;
-    overflow: visible !important;
-    z-index: 1 !important;
-}
-
-/* ----- ТЕКСТОВЫЙ БЛОК ----- */
-.info-block-old .info-text {
-    position: relative !important;
-    z-index: 3 !important; /* Текст ПОВЕРХ всего */
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 16px !important;
-    margin-bottom: 20px !important; /* Отступ от видео */
-    color: #ffffff !important;
-    text-align: center !important;
-}
-
-.info-block-old .info-text h2 {
-    font-size: 1.25rem !important;
-    margin-bottom: 16px !important;
-    text-align: center !important;
-}
-
-.info-block-old .info-text p {
-    font-size: 0.875rem !important;
-    line-height: 1.6 !important;
-    text-align: center !important;
-}
-
-/* ----- ВИДЕО ДЕНДРИТНОЙ КЛЕТКИ ----- */
-.info-bg-video-dend {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    width: 100% !important;
-    height: 55% !important; /* Занимает нижнюю часть */
-    object-fit: cover !important;
-    object-position: center bottom !important;
-    z-index: 1 !important; /* Видео НИЖЕ текста */
-    pointer-events: none !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    
-    /* Плавный переход сверху */
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0, 0, 0, 0.2) 15%,
-        rgba(0, 0, 0, 0.5) 30%,
-        rgba(0, 0, 0, 0.8) 50%,
-        black 70%
-    );
-    mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0, 0, 0, 0.2) 15%,
-        rgba(0, 0, 0, 0.5) 30%,
-        rgba(0, 0, 0, 0.8) 50%,
-        black 70%
-    );
-}
-
-/* Градиент поверх видео */
-.info-bg-video-dend::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60%;
-    background: linear-gradient(
-        to bottom,
-        rgba(36, 83, 211, 0) 0%,
-        rgba(36, 83, 211, 0.2) 20%,
-        rgba(36, 83, 211, 0.4) 40%,
-        rgba(36, 83, 211, 0.7) 70%,
-        rgba(36, 83, 211, 1) 100%
-    );
-    pointer-events: none;
-    z-index: 2;
-}
-
-/* ----- ДОПОЛНИТЕЛЬНЫЙ БЛЮР ДЛЯ ПЕРЕХОДА ----- */
-.info-block-old::before {
-    content: "";
-    position: absolute;
-    top: 45%;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(
-        to bottom,
-        rgba(36, 83, 211, 0.8) 0%,
-        rgba(36, 83, 211, 0) 100%
-    );
-    filter: blur(20px);
-    pointer-events: none;
-    z-index: 2;
-}
-
-/* ----- ВАЖНЫЕ БЛОКИ ВНУТРИ ----- */
-.info-block-old .important-block {
-    position: relative !important;
-    z-index: 3 !important;
-    margin: 20px 0 !important;
-    padding: 18px 20px !important;
-}
-
-/* ============================================
-   МОБИЛЬНЫЕ 768px
-   ============================================ */
-
-@media (max-width: 768px) {
-    .info-block-old {
-        min-height: 500px !important;
-        padding: 32px 20px !important;
-    }
-    
-    .info-bg-video-dend {
-        height: 50% !important;
-    }
-    
-    .info-block-old::before {
-        top: 40%;
-        height: 120px;
-    }
-    
-    .info-block-old .info-text h2 {
-        font-size: 1.1rem !important;
-    }
-    
-    .info-block-old .info-text p {
-        font-size: 0.8125rem !important;
-    }
-}
 
 /* ============================================
    МОБИЛЬНЫЕ 480px
