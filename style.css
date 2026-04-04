@@ -19,6 +19,7 @@ html {
 
 
 
+
 body {
     font-family: "Geologica", Arial, sans-serif;
     background-color: rgb(194, 218, 255);
@@ -29,6 +30,7 @@ body {
     background-repeat: repeat;
     background-size: auto;
     min-height: 100vh;
+    cursor: url('pictures/cursor.png') 16 16, auto;
 }
 .back-video {
   position: fixed;
@@ -124,6 +126,7 @@ h2 {
     font-size: 1.125rem;
     font-weight: 600;
     text-align: left;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 .toc-number {
@@ -649,7 +652,7 @@ footer {
     justify-content: center;
     font-weight: bold;
     font-size: 1.3rem;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-190px) rotate(calc(-1 * var(--angle)));
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -693,7 +696,7 @@ footer {
 /* Области подсветки - они же линзы */
 .highlight-area {
     position: absolute;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     z-index: 10;
     border-radius: 50%;
     /* По умолчанию невидимы */
@@ -804,7 +807,7 @@ footer {
   height: 520px;
 
   perspective: 1200px;
-  cursor: pointer;
+  cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 .card-inner {
@@ -1032,7 +1035,7 @@ footer {
     margin-bottom: 60px;
     border-radius: 16px;
     transition: 0.3s;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 .zoom-img:hover {
@@ -1071,7 +1074,7 @@ footer {
     color: #fff;
     font-size: 40px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     user-select: none;
 }
 
@@ -1134,7 +1137,7 @@ footer {
     background: #4260e300;
     border-radius: 16px;
     backdrop-filter: blur(8px);
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     overflow: hidden;
 
     box-shadow: 0 10px 20px rgba(0, 60, 139, 0.199),
@@ -1168,7 +1171,7 @@ footer {
     border-radius: 50%;
     background: #025bcf;
     color: #ffffff;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     font-weight: 900; /* ← увеличить жирность */
     font-size: 15px; /* ← увеличить размер */
     transition: 0.2s;
@@ -1202,6 +1205,7 @@ footer {
     margin: 30px 0;
     text-decoration: none;
     border: none;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 .test-btn:hover,
@@ -1245,7 +1249,7 @@ footer {
     margin: 12px 0;
 
     border-radius: 14px;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 
     background: rgba(255, 255, 255, 0.12);
     color: #ffffff;
@@ -1504,7 +1508,7 @@ footer {
 .sidebar-nav a {
   position: relative;
   padding-left: 14px;
-    
+    cursor: url('pictures/pointer.png') 16 16, auto;
   font-size: 1.125rem;
   line-height: 1;
   text-decoration: none;
@@ -1554,7 +1558,7 @@ footer {
 .exit-btn {
   width: 30px;
   height: auto;
-  cursor: pointer;
+  cursor: url('pictures/pointer.png') 16 16, auto;
 
   opacity: 0.8;
   transition: 
@@ -1604,7 +1608,7 @@ footer {
     width: 48px;
     height: auto;
     display: block;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     transition: opacity 0.25s, transform 0.25s;
 }
 
@@ -2018,7 +2022,7 @@ footer {
 
     overflow: hidden;
     box-shadow: 0 0px 20px rgba(0, 60, 139, 0.199);
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 
@@ -2034,7 +2038,7 @@ footer {
     transition: 
         opacity 0.8s ease,
         transform 0.8s ease;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 /* При зуме: видео затемняется и слегка увеличивается */
@@ -2061,7 +2065,7 @@ footer {
 /* Иконки рецепторов */
 .receptor img {
     height: 170px;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 
     opacity: 0;
     transform: scale(0.7);
@@ -2273,7 +2277,7 @@ background-color: rgba(255, 255, 255, 0.15);
     flex: 1;
     height: 240px;
     perspective: 1000px;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     display: flex;
     min-width: 0;
     position: relative; /* чтобы абсолютные иконки позиционировались */
@@ -2507,7 +2511,7 @@ background-color: rgba(255, 255, 255, 0.15);
                 inset 0 0 20px rgba(255, 255, 255, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
     transition: transform 0.3s ease;
 
 
@@ -2925,7 +2929,7 @@ background-color: rgba(255, 255, 255, 0.15);
 .interactive-hotspot {
     position: absolute;
     z-index: 10;
-    cursor: pointer;
+    cursor: url('pictures/pointer.png') 16 16, auto;
 }
 
 .hotspot-dot {
@@ -4129,7 +4133,7 @@ body::after {
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3),
                     inset 0 0 20px rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(10px);
-        cursor: pointer;
+        cursor: url('pictures/pointer.png') 16 16, auto;
         transition: transform 0.3s ease;
         margin: 0;
         padding: 0;
@@ -5072,3 +5076,5 @@ body.loaded::after {
         height: 100px;
     }
 }
+
+
